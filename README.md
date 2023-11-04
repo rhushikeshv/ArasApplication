@@ -1,6 +1,7 @@
-# ArasApplication
+# ArasApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+This is an app that shows how to build angular ui for Aras Innovator PLM
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
 
 ## Development server
 
