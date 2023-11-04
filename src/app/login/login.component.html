@@ -1,0 +1,52 @@
+
+<h1 style="color: green">Welcome to ARAS Application using Angular</h1>
+<div id="LoginApp">
+  <p-blockUI [target]="pnl" [blocked]="blockedPanel">
+    <i class="pi pi-lock" style="font-size: 3rem"></i>
+  </p-blockUI>
+  <p-panel #pnl header="Login" styleClass="mt-4">
+   <!-- <p class="m-0">
+      Login in Progress
+    </p>-->
+
+
+
+      <div class="labelinputwrapper">
+        <label for="username">Username</label>
+        <input pInputText id="username" aria-describedby="username-help" [(ngModel)]="loginName" name="loginName" />
+      </div>
+      <div class="labelinputwrapper">
+        <label for="password">Password</label>
+        <p-password class="fullwidth" [(ngModel)]="password" [feedback]="false" name="password" id="password"></p-password>
+        <br/>
+      </div>
+      <div class="labelinputwrapper">
+        <label for="database">Database</label>
+        <p-dropdown class="fullwidth" [options]="databases" [(ngModel)]="selectedDatabase" optionLabel="name" id="database" name="database"></p-dropdown>
+        <br/>
+      </div>
+      <div class="labelinputwrapper">
+        <label for="hostname">Hostname</label>
+        <input pInputText id="hostname" aria-describedby="hostname-help" [(ngModel)]="hostname" name="hostname" />
+        <br/>
+      </div>
+
+      <div class="labelinputwrapper">
+        <label for="connection">Connection</label>
+        <input pInputText id="connection" aria-describedby="connection-help" [(ngModel)]="connection" name="connection" />
+        <br/>
+      </div>
+
+    <div class="buttonwrapper">
+      <p-button (onClick)="onSubmit()">Login</p-button>
+    </div>
+    <div>
+
+    </div>
+
+
+  </p-panel>
+
+</div>
+
+
