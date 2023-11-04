@@ -8,7 +8,7 @@ The application is based on the popular Angular UI framework that integrated wit
 Angular UI connects with dotnet core APIs using REST.
 The dotnet core APIs connect to the ARAS PLM platform using Innovator Admin client library.
 
-
+![img.png](img.png)
 
 ## Part Management (CRUD)
 
