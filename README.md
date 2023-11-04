@@ -25,3 +25,5 @@ The user roles will allow the logged in user to access a particular functionalit
 Example : Delete Part is accessible only to Innovator Admin user.
 
 
+## Use Case 1 - Login
+![img_1.png](img_1.png)
