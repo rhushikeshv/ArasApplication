@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/bootstrap4-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+body {
+  font-family: var(--font-family);
+}
+
+#partTable table th,tr {
+  color:#444 !important;
+}
+#partTable table th {
+  background-color:#61CCFA !important;
+}
+#partTable table tr:nth-child(even) {
+  background-color:#AEE5FC !important;
+}
+
+#partTable table td {
+  border:1px solid #eee !important;
+}
+
+#LoginApp{
+
+  width:546px;
+  float:left;
+}
+
+#LoginApp .labelinputwrapper {
+  width:100%;
+  float:left;
+  margin-bottom:15px;
+
+}
+
+#LoginApp .labelinputwrapper label {
+  width:100%;
+  float:left;
+
+
+}
+
+
+
+#LoginApp .labelinputwrapper input, p-password-input {
+  width:100%;
+  float:left;
+
+}
+
+
+
+.fullwidth input{
+  width:500px !important;
+  float:left !important;
+}
+.p-dropdown {
+  width: 500px !important;
+  float: left !important;
+}
+
