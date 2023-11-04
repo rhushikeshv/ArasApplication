@@ -1,28 +1,27 @@
-# ArasApp
+# Welcome to Aras Application based on Angular UI and DOTNET Core Web API using Innovator Admin client library
 
-This is an app that shows how to build angular ui for Aras Innovator PLM
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+The application is based on the popular Angular UI framework that integrated with REST APIs published using DOTNET CORE Web API. 
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Architecture
 
-## Code scaffolding
+Angular UI connects with dotnet core APIs using REST.
+The dotnet core APIs connect to the ARAS PLM platform using Innovator Admin client library.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Part Management (CRUD)
 
-## Running unit tests
+The application tries to manage a Part using the above architecture for the following.
+1. Create Part
+2. Delete Part
+3. Edit Part
+4. Promote Part
+5. Demote Part
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Role  based Security
 
-## Running end-to-end tests
+The user roles will allow the logged in user to access a particular functionality.
+Example : Delete Part is accessible only to Innovator Admin user.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
