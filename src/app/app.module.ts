@@ -26,6 +26,15 @@ import {Card, CardModule} from "primeng/card";
 import {LoginService} from "./login/login.service";
 import {RoleBasedDirective} from "./directive/RoleBasedDirective";
 import {StyleClassModule} from "primeng/styleclass";
+import {ToastModule} from "primeng/toast";
+import {ToolbarModule} from "primeng/toolbar";
+import {FileUploadModule} from "primeng/fileupload";
+import {RatingModule} from "primeng/rating";
+import {DialogModule} from "primeng/dialog";
+import {ConfirmDialogModule} from "primeng/confirmdialog";
+import {PaginatorModule} from "primeng/paginator";
+import {RadioButtonModule} from "primeng/radiobutton";
+import {MessageService} from "primeng/api";
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,24 +51,32 @@ import {StyleClassModule} from "primeng/styleclass";
       provide: HTTP_INTERCEPTORS,useClass: ArasRestApiInterceptorInterceptor,multi:true,
     }
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        ButtonModule,
-        PasswordModule,
-        InputTextModule,
-        FormsModule,
-        DropdownModule,
-        HttpClientModule,
-        AppRoutingModule,
-        BlockUIModule,
-        PanelModule,
-        SlideMenuModule,
-        TabMenuModule,
-        TableModule,
-        CardModule,
-        StyleClassModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    ButtonModule,
+    PasswordModule,
+    InputTextModule,
+    FormsModule,
+    DropdownModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BlockUIModule,
+    PanelModule,
+    SlideMenuModule,
+    TabMenuModule,
+    TableModule,
+    CardModule,
+    StyleClassModule,
+    ToastModule,
+    ToolbarModule,
+    FileUploadModule,
+    RatingModule,
+    DialogModule,
+    ConfirmDialogModule,
+    PaginatorModule,
+    RadioButtonModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

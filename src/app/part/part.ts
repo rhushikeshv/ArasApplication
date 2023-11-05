@@ -22,14 +22,15 @@ export class Part{
         },
    */
 
-   id?:string;
-   part_number?:string;
-   make_buy?:string;
-   revision?:string;
-   name?:string;
-   classification?:string;
-   state?:string;
-   cost?:string;
-   raw_form?:string;
+   id!:string;
+   part_number!:string;
+   make_buy!:string;
+   revision!:string;
+   state!:string;
+   cost!:string;
+   raw_form!:string;
+   name!:string;
+   classification!:string;
+
    //current_state@aras.name:any;
 }

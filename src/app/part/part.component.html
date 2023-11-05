@@ -1,5 +1,5 @@
 <div id="partTable">
-<p-table [value]="parts"  pStyleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+<!--<p-table [value]="parts"  pStyleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
   <ng-template pTemplate="header">
     <tr>
       <th>Name</th>
@@ -21,5 +21,107 @@
 
     </tr>
   </ng-template>
-</p-table>
+</p-table>-->
+
+  <p-toast></p-toast>
+
+  <div class="card">
+    <p-toolbar styleClass="p-mb-4">
+      <ng-template pTemplate="left">
+        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+        <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedParts()" [disabled]="!selectedParts || !selectedParts.length"></button>
+      </ng-template>
+
+      <!--<ng-template pTemplate="right">
+        <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
+        <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
+      </ng-template>-->
+    </p-toolbar>
+
+    <p-table #dt [value]="parts" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']"
+             [(selection)]="selectedParts" [rowHover]="true" dataKey="id"
+             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+     <!-- <ng-template pTemplate="caption">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          <h5 class="p-m-0">Manage Parts</h5>
+          <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal(($any($event.target).value), 'contains')" placeholder="Search..." />
+                </span>
+        </div>
+      </ng-template>-->
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: 3rem">
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+          </th>
+          <th pSortableColumn="part_number">Part Number <p-sortIcon field="part_number"></p-sortIcon></th>
+          <th pSortableColumn="make_buy">Make/Buy <p-sortIcon field="make_buy"></p-sortIcon></th>
+          <th pSortableColumn="revision">Revision <p-sortIcon field="revision"></p-sortIcon></th>
+          <th pSortableColumn="state">State <p-sortIcon field="state"></p-sortIcon></th>
+          <th pSortableColumn="raw_form">Raw Form <p-sortIcon field="raw_form"></p-sortIcon></th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-part>
+        <tr>
+          <td>
+            <p-tableCheckbox [value]="part"></p-tableCheckbox>
+          </td>
+          <td>{{part.part_number}}</td>
+          <td>{{part.make_buy}}}</td>
+          <td>{{part.revision}}</td>
+          <td>{{part.state}}</td>
+          <td>{{part.raw_form}}</td>
+          <td>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-success p-mr-2"
+              (click)="editPart(part)"
+            ></button>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-warning"
+              (click)="deletePart(part)"
+            ></button>
+          </td>
+
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          In total there are {{parts ? parts.length : 0 }} parts.
+        </div>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <p-dialog [(visible)]="partDialog" [style]="{width: '450px'}" header="Part Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+      <div class="p-field">
+        <label for="name">Part Number</label>
+        <input type="text" pInputText id="name" [(ngModel)]="part.part_number" required autofocus />
+        <small class="p-invalid" *ngIf="submitted && !part.part_number">Part number is required.</small>
+      </div>
+      <div class="p-field">
+        <label for="state">State</label>
+        <input type="text" pInputText id="state" [(ngModel)]="part.state" readonly autofocus />
+      </div>
+
+
+
+
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="savePart()"></button>
+    </ng-template>
+  </p-dialog>
+
+  <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
 </div>
