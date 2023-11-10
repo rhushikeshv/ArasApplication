@@ -79,18 +79,46 @@ export class PartComponent implements OnInit{
 
   protected readonly name = name;
 
+  savePartToAras(create:boolean)
+  {
+
+      this.partService.savePart(this.part).subscribe(dataElement=>{
+      this.part.id = dataElement["id"];
+      this.part.part_number = dataElement["part_number"];
+      this.part.revision = dataElement["revision"];
+      this.part.make_buy = dataElement["make_buy"];
+      this.part.classification = dataElement["classification"];
+      this.part.state = dataElement["state"];
+      this.part.cost = dataElement["cost"];
+      this.part.raw_form=dataElement["raw_form"];
+      this.part.name = dataElement["name"];
+
+      console.log(this.part);
+      if(this.findIndexById(this.part.part_number) == -1)
+      {
+        this.parts.push(this.part);
+      }
+      else {
+        this.parts[this.findIndexById(this.part.part_number)] = this.part;
+      }
+
+      if(create)
+       this.messageService.add({severity:'success', summary: 'Successful', detail: 'Part Created', life: 3000});
+      else
+        this.messageService.add({severity:'success', summary: 'Successful', detail: 'Part Updated', life: 3000});
+
+    })
+  }
   savePart() {
     this.submitted = true;
 
     if (this.part.part_number.trim()) {
       if (this.part.id) {
-        this.parts[this.findIndexById(this.part.id)] = this.part;
-        this.messageService.add({severity:'success', summary: 'Successful', detail: 'Part Updated', life: 3000});
+        this.savePartToAras(false);
       }
       else {
         this.part.id = "";
-        this.parts.push(this.part);
-        this.messageService.add({severity:'success', summary: 'Successful', detail: 'Part Created', life: 3000});
+        this.savePartToAras(true);
       }
 
 
@@ -107,10 +135,10 @@ export class PartComponent implements OnInit{
     }
   }
 
-  findIndexById(id: string): number {
+  findIndexById(part_number: string): number {
     let index = -1;
     for (let i = 0; i < this.parts.length; i++) {
-      if (this.parts[i].id === id) {
+      if (this.parts[i].part_number === part_number) {
         index = i;
         break;
       }

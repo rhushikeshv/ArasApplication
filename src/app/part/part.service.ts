@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Part} from "./part";
 import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,8 @@ export class PartService {
       }
     });
     return this.parts;
+  }
+  savePart(part:Part) : Observable<any>  {
+    return this.httpClient.post("https://localhost:7123/api/Part",part);
   }
 }
