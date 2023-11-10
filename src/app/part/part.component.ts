@@ -22,12 +22,30 @@ export class PartComponent implements OnInit{
 
   raw_form!: String[];
 
+  classification!:String[];
+
+  control_type!:String[];
+
   submitted!: boolean;
   constructor(private partService:PartService, private messageService: MessageService, private confirmationService: ConfirmationService) {
 
-    this.part = { id:"",part_number:"",make_buy:"",revision:"",state:"",cost:"",raw_form:"",name:"",classification:""}
+    this.part = { id:"",part_number:"",
+                  make_buy:"",revision:"",
+                  state:"",cost:"",
+                  raw_form:"",name:"",
+                  classification:"",
+                  control_type:"",
+    }
+
     this.make_buy =['Buy','Make'];
+
     this.raw_form = ['Pipe','Plate','Forging','Casting'];
+
+    this.classification = ['Assembly','Material','Component','Software'];
+
+    this.control_type = ['Serial','Lot/Batch','No Control'];
+
+
 
   }
 
@@ -78,7 +96,13 @@ export class PartComponent implements OnInit{
 
       this.parts = [...this.parts];
       this.partDialog = false;
-      this.part = { id:"",part_number:"",make_buy:"",revision:"",state:"",cost:"",raw_form:"",name:"",classification:""};
+      this.part = { id:"",part_number:"",
+        make_buy:"",revision:"",
+        state:"",cost:"",
+        raw_form:"",name:"",
+        classification:"",
+        control_type:"",
+      }
 
     }
   }

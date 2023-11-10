@@ -31,6 +31,7 @@ export class Part{
    raw_form!:string;
    name!:string;
    classification!:string;
+   control_type!:string;
 
    //current_state@aras.name:any;
 }

@@ -66,22 +66,34 @@
     </p-table>
   </div>
 
-  <p-dialog [(visible)]="partDialog" [style]="{height:'450px',width: '450px'}" header="Part Details" [modal]="true" styleClass="p-fluid">
+  <p-dialog [(visible)]="partDialog" [style]="{height:'750px',width: '550px'}" header="Part Details" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
+
       <div class="p-field">
-        <label for="name">Part Number</label>
-        <input type="text" pInputText id="name" [(ngModel)]="part.part_number" required autofocus />
+        <label for="name">Part Name</label>
+        <input type="text" pInputText id="name" [(ngModel)]="part.name" required autofocus />
+        <small class="p-invalid" *ngIf="submitted && !part.name">Part name is required.</small>
+      </div>
+      <div class="p-field">
+        <label for="partnumber">Part Number</label>
+        <input type="text" pInputText id="partnumber" [(ngModel)]="part.part_number" required autofocus />
         <small class="p-invalid" *ngIf="submitted && !part.part_number">Part number is required.</small>
       </div>
       <div class="p-field">
         <label for="make_buy">Make/Buy</label>
-<!--        <input type="text" pInputText id="make_buy" [(ngModel)]="part.make_buy" autofocus />-->
         <p-dropdown [options]="make_buy" [(ngModel)]="part.make_buy" id="make_buy"></p-dropdown>
       </div>
       <div class="p-field">
         <label for="raw_form">Raw Form</label>
-        <!--        <input type="text" pInputText id="make_buy" [(ngModel)]="part.make_buy" autofocus />-->
         <p-dropdown [options]="raw_form" [(ngModel)]="part.raw_form" id="raw_form"></p-dropdown>
+      </div>
+      <div class="p-field">
+        <label for="classification">Classification</label>
+        <p-dropdown [options]="classification" [(ngModel)]="part.classification" id="classification"></p-dropdown>
+      </div>
+      <div class="p-field">
+        <label for="control_type">Control Type</label>
+        <p-dropdown [options]="control_type" [(ngModel)]="part.control_type" id="control_type"></p-dropdown>
       </div>
     </ng-template>
 
