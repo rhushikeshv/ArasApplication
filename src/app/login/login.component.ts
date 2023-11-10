@@ -3,6 +3,7 @@ import {Md5} from "ts-md5";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {LoginService} from "./login.service";
 import {LoginModel} from "./LoginModel";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -17,9 +18,10 @@ export class LoginComponent {
   blockedPanel: boolean = false ;
   hostname: string ="";
   connection: string  ="";
+  blockedProgress!: boolean;
 
 
-  constructor(private loginService:LoginService) {
+  constructor(private loginService:LoginService,private router:Router) {
   }
   ngOnInit(){
     this.databases = [
@@ -28,29 +30,23 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    /*if (typeof this.password === "string") {
-      const md5:Md5 = new Md5();
-      this.password = md5.appendStr(this.password).end();
-    }*/
-
-
-
-    //let postData:any = JSON.parse(body);
-    console.log(this.password);
     this.blockedPanel=true;
-
+    this.blockedProgress =true;
     let loginData: LoginModel = new LoginModel();
     loginData.username = this.loginName;
     loginData.password = this.password;
     loginData.database = this.selectedDatabase.name;
     loginData.hostname = this.hostname;
     loginData.connection = this.connection;
-    const outcome = this.loginService.login(loginData)
-    if(outcome)
-    {
-      //navigate to the next home component
-      console.log('login successful')
-    }
+    this.loginService.login(loginData).subscribe(result=>{
+      console.log(result);
+      this.blockedPanel = false;
+      this.blockedProgress = false;
+      this.loginService.isAuthenticated=true;
+      this.loginService.loginResult=result;
+      this.router.navigate(['/home']);
+    });
+
 
 
   }

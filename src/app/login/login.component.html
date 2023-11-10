@@ -4,6 +4,7 @@
   <p-blockUI [target]="pnl" [blocked]="blockedPanel">
     <i class="pi pi-lock" style="font-size: 3rem"></i>
   </p-blockUI>
+  <p-progressBar *ngIf="blockedProgress" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
   <p-panel #pnl header="Login" styleClass="mt-4">
    <!-- <p class="m-0">
       Login in Progress
