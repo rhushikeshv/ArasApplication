@@ -18,10 +18,16 @@ export class PartComponent implements OnInit{
 
   selectedParts!: Part[];
 
+  make_buy! : String[];
+
+  raw_form!: String[];
+
   submitted!: boolean;
   constructor(private partService:PartService, private messageService: MessageService, private confirmationService: ConfirmationService) {
 
     this.part = { id:"",part_number:"",make_buy:"",revision:"",state:"",cost:"",raw_form:"",name:"",classification:""}
+    this.make_buy =['Buy','Make'];
+    this.raw_form = ['Pipe','Plate','Forging','Casting'];
 
   }
 

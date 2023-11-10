@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Part} from "./part";
 import {HttpClient} from "@angular/common/http";
-import {ConsoleLogger} from "@angular/compiler-cli";
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +15,6 @@ export class PartService {
         console.log('parts '+ data.parts);
         //this.parts = data.value;
         data.parts.forEach((dataElement : any) =>{
-
-          console.log("part ", dataElement);
 
           let part:Part = new Part();
 
@@ -37,8 +34,11 @@ export class PartService {
 
           part.cost = dataElement["cost"];
 
-          part.raw_form=dataElement["raw_form"]
+          part.raw_form=dataElement["raw_form"];
 
+          part.name = dataElement["name"];
+
+          console.log("part ", part);
           this.parts.push(part);
 
         })
