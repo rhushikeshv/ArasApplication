@@ -76,7 +76,7 @@
       </div>
       <div class="p-field">
         <label for="partnumber">Part Number</label>
-        <input type="text" pInputText id="partnumber" [(ngModel)]="part.part_number" required autofocus />
+        <input type="text" pInputText id="partnumber" [(ngModel)]="part.part_number" required autofocus [disabled]="isCreate"/>
         <small class="p-invalid" *ngIf="submitted && !part.part_number">Part number is required.</small>
       </div>
       <div class="p-field">

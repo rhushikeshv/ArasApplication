@@ -27,6 +27,8 @@ export class PartComponent implements OnInit{
   control_type!:String[];
 
   submitted!: boolean;
+
+  isCreate!: boolean;
   constructor(private partService:PartService, private messageService: MessageService, private confirmationService: ConfirmationService) {
 
     this.part = { id:"",part_number:"",
@@ -62,6 +64,14 @@ export class PartComponent implements OnInit{
 
     this.submitted = false;
     this.partDialog = true;
+    this.isCreate = false;
+    this.part = { id:"",part_number:"",
+      make_buy:"",revision:"",
+      state:"",cost:"",
+      raw_form:"",name:"",
+      classification:"",
+      control_type:"",
+    }
   }
 
   deleteSelectedParts() {
@@ -77,7 +87,7 @@ export class PartComponent implements OnInit{
     });
   }
 
-  protected readonly name = name;
+
 
   savePartToAras(create:boolean)
   {
@@ -93,7 +103,6 @@ export class PartComponent implements OnInit{
       this.part.raw_form=dataElement["raw_form"];
       this.part.name = dataElement["name"];
 
-      console.log(this.part);
       if(this.findIndexById(this.part.part_number) == -1)
       {
         this.parts.push(this.part);
@@ -155,6 +164,7 @@ export class PartComponent implements OnInit{
   editPart(part: Part) {
     this.part = {...part};
     this.partDialog = true;
+    this.isCreate = true;
   }
 
   deletePart(part: Part) {
