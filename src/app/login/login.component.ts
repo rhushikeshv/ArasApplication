@@ -44,6 +44,7 @@ export class LoginComponent {
       this.blockedProgress = false;
       this.loginService.isAuthenticated=true;
       this.loginService.loginResult=result;
+      localStorage.setItem("username",loginData.username);
       this.router.navigate(['/home']);
     });
 
