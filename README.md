@@ -29,4 +29,4 @@ Example : Delete Part is accessible only to Innovator Admin user.
 ![img_1.png](img_1.png)
 
 ## Use Case 2 - Home Page based on Role based Security
-![img_2.png](img_2.png)
+![img_3.png](img_3.png)
