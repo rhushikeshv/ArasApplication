@@ -30,3 +30,6 @@ Example : Delete Part is accessible only to Innovator Admin user.
 
 ## Use Case 2 - Home Page based on Role based Security
 ![img_3.png](img_3.png)
+
+##Use Case 3 - Get All Parts
+![img_4.png](img_4.png)
