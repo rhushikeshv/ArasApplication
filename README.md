@@ -34,5 +34,10 @@ Example : Delete Part is accessible only to Innovator Admin user.
 ## Use Case 3 - Get All Parts
 ![img_4.png](img_4.png)
 
-## Use Case 4 - Create/Edit Part
+
+## Use Case 4 - Create Part
+![img_5.png](img_5.png)
+
+## Use Case 5 - Edit Part
 ![img_2.png](img_2.png)
+
