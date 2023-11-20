@@ -16,8 +16,8 @@ The application tries to manage a Part using the above architecture for the foll
 1. Create Part
 2. Delete Part
 3. Edit Part
-4. Promote Part
-5. Demote Part
+4. Role based security for UI
+
 
 ## Role  based Security
 
